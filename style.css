@@ -1,0 +1,438 @@
+/*
+ Theme Name:   creative & pacific (Divi Child Theme)
+ Theme URI:    https://www.creativeandpacific.ch
+ Description:  a child theme for Divi, by creative & pacific
+ Author:       creative & pacific
+ Author URI:   https://www.creativeandpacific.ch
+ Template:     Divi
+ Version:      1.0.0
+*/
+
+/*****Custom CSS below this line*****/
+
+/* Header */
+.top-header > div {
+	max-width: 50%;
+}
+
+.menu-top-right {
+	display: flex;
+	justify-content: flex-end;
+    align-items: flex-end;
+	line-height: 48px;
+}
+
+.main-menu {
+	margin-bottom: 0 !important;
+}
+
+.main-menu > div {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-menu .menu-icon {
+	line-height: 60px;
+    font-size: 30px;
+}
+
+.eticon:before {
+	padding: 10px;
+	color: #b3b3b3 !important;
+}
+
+.eticon:before {
+	font-family: "ETmodules"!important;
+}
+
+.icon_profile:before {
+	content: "\e08a";
+}
+
+.icon_bag:before {
+	content: "\e013";
+	color: #666 !important;
+}
+
+.icon_heart:before {
+	content: "\e030";
+	color: #666 !important;
+}
+
+.menu-top-right .eticon:before {
+	font-size: 24px;
+	margin-right: 10px;
+}
+
+.eticon:hover:before {
+	color: #3baa96 !important;
+}
+
+.cart-contents {
+    position: relative;
+    display: flex !important;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.menu-icon {
+	position: relative;
+}
+
+.menu-icon .product-count {
+    color: #fff;
+    background: #3baa96; 
+    font-weight: bold;
+    border-radius: 100%;
+    line-height: 17px;
+	position: absolute;
+	top: 6px;
+	right: -6px;
+    height: 17px; 
+    width: 17px;
+    font-size: 11px;
+	text-align: center;
+}
+
+/* smartphone only */
+@media only screen and (max-width: 767px) {
+	.menu-top-right {
+		line-height: 36px;
+	}
+	
+	.menu-top-right .eticon:before {
+		font-size: 18px;
+	}
+	
+	.main-menu > div {
+    	justify-content: space-evenly;
+	}
+	
+	.main-menu .divider {
+		width: 1px;
+    	height: 60px;
+    	background-color: #eee;
+	}
+}
+/* Header-end */
+
+/* Footer */
+.shipping-methods img,
+.payment-methods img{
+	max-width: 33%;
+	padding: 0 5px 5px 5px;
+}
+
+#main-footer .inf-main {
+	text-align: center!important;
+	padding: 0;
+	background-color: transparent;
+    margin: 0;
+}
+
+#main-footer .inf-main h4 {
+	text-transform: uppercase!important;
+    color: #474747!important;
+	font-weight: normal;
+	font-size: 15px;
+	margin-bottom: 0;
+}
+
+#main-footer .inf-main .inf-input {
+	padding-bottom: 1em;
+}
+
+#main-footer .inf-main .inf-input input[type="text"] {
+	font-size: 12px;
+    background-color: #d6d6d6;
+	padding: 14px 4%;
+    border-width: 0;
+    border-radius: 3px;
+}
+
+#main-footer .inf-main .inf-submit input[type="submit"] {
+	font-size: 14px;
+	color: #3baa96 !important;
+	background: transparent;
+	width: 100%;
+    position: relative;
+    padding: .3em 1em;
+    border: 2px solid;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-weight: 500;
+    line-height: 1.7em!important;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+#main-footer .inf-main .inf-submit input[type="submit"]:hover {
+    border: 2px solid transparent;	
+}
+
+/* WooCommerce Product (Action Buttons, Rating...) */
+.products .product {
+	padding-bottom: 45px !important;	
+}
+
+.products .product .price {
+	padding-bottom: 10px;
+}
+
+.products .product .star-rating {
+	position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+
+.products .product .wishlist-button {
+	position: absolute !important;
+    z-index: 2;
+    right: 60px;
+	background-color: #d18aa8;
+	color: white;
+	border-radius: 100%;
+	margin-top: 0 !important;
+}
+
+.products .product .wishlist-button:hover {
+    right: 55px;
+	bottom: -12px;
+	width: 46px;
+    height: 46px;
+}
+
+.products .product .added_to_cart.wc-forward {
+	/* overlay add to cart button to force forwarding to cart on second click*/
+	position: absolute;
+    font-size: 0;
+    width: 36px;
+    height: 36px;
+    right: 10px;
+    z-index: 3;
+}
+
+.products .product .cp_add_to_cart_button {
+	position: absolute;
+    z-index: 2;
+    right: 10px;
+    background: #3baa96;
+    border-radius: 100%;
+	font-size: 0;
+	width: 36px;
+    height: 36px;
+	color: white;
+	line-height: 1;
+}
+
+.products .product .cp_add_to_cart_button:hover {
+    right: 5px;
+	bottom: 3px;
+	width: 46px;
+    height: 46px;
+}
+
+.products .product .cp_add_to_cart_button:before {
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+	margin-top: -10px;
+    margin-left: -10px;
+	content: "\e013";
+	font-family: "ETmodules";
+}
+
+.products .product .cp_add_to_cart_button.added:before {
+	content: "\4e";
+}
+
+.products .product .cp_add_to_cart_button.loading:before {
+    font-family: "ETmodules";
+    content: "\e02d";
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+/* Wishlist */
+.tinv-wishlist.tinvwl-after-add-to-cart .tinvwl_add_to_wishlist_button.wishlist-button {
+	margin-top: 0;
+	margin-left: 20px;
+	background-color: #d18aa8;
+	border-radius: 20px;
+	color: white;
+	width: 40px;
+	height: 40px;
+}
+ 
+.tinvwl-table-manage-list div.tinvwl-to-right.look_in {
+	float: right;
+}
+
+.social-buttons .social i {
+	color: #666;
+}
+
+.social-buttons .social i:hover {
+	color: #3EA996;
+}
+
+/* fix dropdown menu behind main content */
+#main-content {
+	position: relative;
+    z-index: 1;	
+}
+
+/* Sale button color on product page */
+.woocommerce span.onsale, .woocommerce-page span.onsale {
+	background: #3EA996 !important;
+}
+
+/* fix selected menu color */
+#top-menu li.current-menu-item>a,
+#top-menu li.current-menu-ancestor>a {
+    color: #3baa96;
+}
+
+/* Newsletter */
+.newsletter-form .inf-main {
+	background: transparent;
+	margin: 0;
+}
+
+.newsletter-form .inf-main > h4,
+.newsletter-form .inf-main > span{
+	display: none;
+}
+
+.newsletter-form .inf-main input {
+	border-width: 2px;
+	border-color: rgba(51,51,51,0.1);
+	border-style: solid;
+	padding: 16px !important;
+}
+
+/* Stock status */
+.available-on-backorder {
+	color: #d42828 !important;
+}
+
+/* Woocommerce checkout */
+.woocommerce #customer_details {
+	margin-top: 30px;
+}
+
+/* 
+ * Custom AJAX spinner on WooCommerce checkout 
+ * The class used to load the overlay is .blockUI .blockOverlay
+ * The class used to load the spinner is .woocommerce .loader:before
+ *
+ */
+.woocommerce .blockUI.blockOverlay:before,
+.woocommerce .loader:before {
+    height: 3em;
+    width: 3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -.5em;
+    margin-top: -.5em;
+    display: block;
+    content: "";
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+    background: url('https://shop.creativeandpacific.ch/wp-content/uploads/2019/06/loading.gif') center center;
+    background-size: cover;
+    line-height: 1;
+    text-align: center;
+    font-size: 2em;
+}
+
+/* focus on checkout spinner */
+.blockUI.blockOverlay {
+	position: fixed !important;
+	z-index: 99999;
+}
+
+/* fix jumping header */
+#page-container,
+.et_fixed_nav.et_show_nav #page-container {
+	padding-top: 0px;
+}
+
+/* fix button hover color */
+.button:hover {
+	color: #3baa96 !important;
+}
+
+/* fix coupon code input field width */
+input#coupon_code {
+	font-size: 18px!important;
+}
+
+/* smaller buttons and input fields */
+button.button,
+a.button {
+	font-size: 16px !important;
+}
+
+button.button::after,
+a.button::after {
+	font-size: 24px !important;
+}
+
+input.input-text {
+	max-height: 40px;
+}
+
+/* fix mobile product column to 1 */
+@media only screen and (max-width: 480px) {
+	.woocommerce ul.products[class*=columns-] li.product, 
+	.woocommerce-page ul.products[class*=columns-] li.product
+	{
+    	width: 100% !important;
+    	margin-right: 0 !important;
+	}
+}
+
+/* smartphone and tablet only */
+@media only screen and (max-width: 980px) {
+	/* smaller buttons and input fields on mobile */
+	button.button,
+	a.button {
+		font-size: 14px !important;
+	}
+	
+	button.button::after,
+	a.button::after {
+		font-size: 22px !important;
+	}
+	
+	input.input-text {
+		max-height: 35.38px;
+	}
+	
+	.woocommerce .quantity .qty {
+		width: 2.5em;
+	}
+	
+	.tinv-wishlist.tinvwl-after-add-to-cart .tinvwl_add_to_wishlist_button.wishlist-button {
+		width: 35.38px;
+		height: 35.38px;
+	}
+
+	/* Switch column order on mobile */
+	.switch-on-mobile { 
+		-webkit-display: flex;
+		-webkit-flex-direction: column-reverse;
+		display: flex;
+		flex-direction: column-reverse !important;
+	}
+} 
