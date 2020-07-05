@@ -23,24 +23,37 @@ add_action( 'woocommerce_checkout_before_order_review', 'free_shipping_note' );
 
 function free_shipping_note() {
            $amount_for_free_shipping = get_free_shipping_amount();
+           $customer_shipping_country = WC()->customer->get_shipping_country();
            $cart = WC()->cart->subtotal;
            $remaining = $amount_for_free_shipping - $cart;
-           if( $amount_for_free_shipping > $cart ){
-               $notice = sprintf( "Kaufe für weitere <b>%s</b> ein und wir <b>liefern kostenlos</b> zu dir nach Hause!", wc_price($remaining));
+           if( $amount_for_free_shipping > $cart && $customer_shipping_country == "CH" ){
+               $notice = sprintf( "Kaufe für weitere <b>%s</b> ein und wir <b>liefern kostenlos</b> zu dir nach Hause! (Nur gültig innerhalb der Schweiz)", wc_price($remaining));
                wc_print_notice( $notice , 'notice' );
            }    
 }
 
-add_shortcode( 'free_shipping_amount', 'get_free_shipping_amount');
+add_shortcode( 'free_shipping_amount_ch', 'get_free_shipping_amount');
 
-add_shortcode( 'flat_rate_shipping_amount', 'get_flat_rate_shipping_amount');
+add_shortcode( 'flat_rate_shipping_amount_ch', 'get_flat_rate_shipping_amount');
+
+add_shortcode( 'free_shipping_amount_eu', 'get_free_shipping_amount_eu');
+
+add_shortcode( 'flat_rate_shipping_amount_eu', 'get_flat_rate_shipping_amount_eu');
 
 function get_free_shipping_amount() {
-    return get_shipping_amount('free_shipping');
+    return get_shipping_amount('free_shipping', 'Schweiz');
 }
 
 function get_flat_rate_shipping_amount() {
-    return get_shipping_amount('flat_rate');
+    return get_shipping_amount('flat_rate', 'Schweiz');
+}
+
+function get_free_shipping_amount_eu() {
+    return get_shipping_amount('free_shipping', 'EU');
+}
+
+function get_flat_rate_shipping_amount_eu() {
+    return get_shipping_amount('flat_rate', 'EU');
 }
 
 /**
@@ -48,7 +61,7 @@ function get_flat_rate_shipping_amount() {
  *
  * @return int The value corresponding to the zone, if there is any. If there is no such zone, or no given shipping method, null will be returned.
  */
-function get_shipping_amount($shipping_method) {
+function get_shipping_amount($shipping_method, $zone_name) {
     global $woocommerce;
 
     if ( ! isset( $zone_name ) ) $zone_name = 'Schweiz';
@@ -239,9 +252,9 @@ add_action( 'woocommerce_review_order_before_payment', 'display_delivery_notific
 
 function display_delivery_notification() {
     if( is_out_of_stock_item_in_cart() ){
-        $message = __("Im Warenkorb befinden sich Produkte, welche zuerst produziert werden müssen. Daher wird die Lieferung voraussichtlich in 5-9 Werktagen bei dir eintreffen.");
+        $message = __("Im Warenkorb befinden sich Produkte, welche zuerst produziert werden müssen. Daher wird die Lieferung voraussichtlich in 5-9 Werktagen bei dir eintreffen. (Gilt nur für Versand innerhalb der Schweiz)");
     } else {
-        $message = __("Yay, alle Produkte im Warenkorb sind an Lager. Daher wird die Lieferung voraussichtlich in 1-3 Werktagen bei dir eintreffen.");
+        $message = __("Yay, alle Produkte im Warenkorb sind an Lager. Daher wird die Lieferung voraussichtlich in 1-3 Werktagen bei dir eintreffen. (Gilt nur für Versand innerhalb der Schweiz)");
     }
     wc_print_notice( $message, 'notice');
 }
@@ -284,3 +297,17 @@ function heateor_ss_custom_social_login_icons( $html, $theChampLoginOptions, $wi
 }
 
 add_filter( 'the_champ_login_interface_filter', 'heateor_ss_custom_social_login_icons', 10, 3 );
+
+/**
+ * Change the default state and country on the checkout page
+ */
+add_filter( 'default_checkout_billing_country', 'change_default_checkout_country' );
+add_filter( 'default_checkout_billing_state', 'change_default_checkout_state' );
+
+function change_default_checkout_country() {
+  return 'CH'; // country code
+}
+
+function change_default_checkout_state() {
+  return 'CH'; // state code
+}

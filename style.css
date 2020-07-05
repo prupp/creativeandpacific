@@ -124,14 +124,14 @@
 	padding: 0 5px 5px 5px;
 }
 
-#main-footer .inf-main {
+#main-footer div[class*="inf-main"] {
 	text-align: center!important;
 	padding: 0;
 	background-color: transparent;
     margin: 0;
 }
 
-#main-footer .inf-main h4 {
+#main-footer div[class*="inf-main"] h4 {
 	text-transform: uppercase!important;
     color: #474747!important;
 	font-weight: normal;
@@ -139,11 +139,11 @@
 	margin-bottom: 0;
 }
 
-#main-footer .inf-main .inf-input {
+#main-footer div[class*="inf-main"] .inf-input {
 	padding-bottom: 1em;
 }
 
-#main-footer .inf-main .inf-input input[type="text"] {
+#main-footer div[class*="inf-main"] .inf-input input[type="text"] {
 	font-size: 12px;
     background-color: #d6d6d6;
 	padding: 14px 4%;
@@ -151,7 +151,7 @@
     border-radius: 3px;
 }
 
-#main-footer .inf-main .inf-submit input[type="submit"] {
+#main-footer div[class*="inf-main"] .inf-submit input[type="submit"] {
 	font-size: 14px;
 	color: #3baa96 !important;
 	background: transparent;
@@ -172,7 +172,7 @@
     -moz-transition: all .2s;
     transition: all .2s;
 }
-#main-footer .inf-main .inf-submit input[type="submit"]:hover {
+#main-footer div[class*="inf-main"] .inf-submit input[type="submit"]:hover {
     border: 2px solid transparent;	
 }
 
@@ -301,17 +301,17 @@
 }
 
 /* Newsletter */
-.newsletter-form .inf-main {
+.newsletter-form div[class*="inf-main"] {
 	background: transparent;
 	margin: 0;
 }
 
-.newsletter-form .inf-main > h4,
-.newsletter-form .inf-main > span{
+.newsletter-form div[class*="inf-main"] > h4,
+.newsletter-form div[class*="inf-main"] > span{
 	display: none;
 }
 
-.newsletter-form .inf-main input {
+.newsletter-form div[class*="inf-main"] input {
 	border-width: 2px;
 	border-color: rgba(51,51,51,0.1);
 	border-style: solid;
