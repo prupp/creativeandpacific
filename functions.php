@@ -26,8 +26,8 @@ function free_shipping_note() {
            $customer_shipping_country = WC()->customer->get_shipping_country();
            $cart = WC()->cart->subtotal;
            $remaining = $amount_for_free_shipping - $cart;
-           if( $amount_for_free_shipping > $cart && $customer_shipping_country == "CH" ){
-               $notice = sprintf( "Kaufe für weitere <b>%s</b> ein und wir <b>liefern kostenlos</b> zu dir nach Hause! (Nur gültig innerhalb der Schweiz)", wc_price($remaining));
+           if( $amount_for_free_shipping > $cart ){
+               $notice = sprintf( "Kaufe für weitere <b>%s</b> ein und wir <b>liefern kostenlos</b> zu dir nach Hause!", wc_price($remaining));
                wc_print_notice( $notice , 'notice' );
            }    
 }
